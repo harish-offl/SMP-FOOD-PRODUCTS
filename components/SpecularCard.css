@@ -1,0 +1,36 @@
+.specular-card {
+  position: relative;
+  overflow: visible;
+  isolation: isolate;
+}
+
+.specular-card__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: inherit;
+  background: inherit;
+}
+
+.specular-card__fx {
+  position: absolute;
+  inset: -20px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.specular-card__fx canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .specular-card__fx {
+    display: none;
+  }
+}

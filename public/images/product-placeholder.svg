@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">SMP nutrition product</title>
+  <desc id="desc">A nutrition pouch with natural grains on a warm studio background.</desc>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="35%" r="80%"><stop stop-color="#493321"/><stop offset=".58" stop-color="#1e1e20"/><stop offset="1" stop-color="#0e0e0f"/></radialGradient>
+    <linearGradient id="pack" x2="1" y2="1"><stop stop-color="#925532"/><stop offset="1" stop-color="#4a2512"/></linearGradient>
+    <linearGradient id="gold" x2="1" y2="1"><stop stop-color="#f5e9d8"/><stop offset="1" stop-color="#d79b3a"/></linearGradient>
+    <filter id="shadow"><feDropShadow dy="25" stdDeviation="22" flood-opacity=".5"/></filter>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <circle cx="975" cy="165" r="170" fill="#d79b3a" opacity=".06"/><circle cx="175" cy="750" r="210" fill="#7b3f21" opacity=".13"/>
+  <ellipse cx="600" cy="770" rx="330" ry="55" fill="#000" opacity=".34"/>
+  <g filter="url(#shadow)">
+    <path d="M390 180q210-48 420 0l-30 525q-180 64-360 0Z" fill="url(#pack)"/>
+    <path d="M390 180q210 50 420 0" fill="none" stroke="#d79b3a" stroke-width="8" opacity=".75"/>
+    <rect x="440" y="295" width="320" height="270" rx="38" fill="#171717" opacity=".86"/>
+    <circle cx="600" cy="395" r="58" fill="url(#gold)"/>
+    <path d="M601 349c29 23 37 56 14 89-35-8-55-34-42-65 5-14 15-21 28-24Z" fill="#5d351e"/>
+    <text x="600" y="500" text-anchor="middle" fill="#f5e9d8" font-family="Arial,sans-serif" font-size="48" font-weight="700" letter-spacing="8">SMP</text>
+    <text x="600" y="538" text-anchor="middle" fill="#d79b3a" font-family="Arial,sans-serif" font-size="17" letter-spacing="5">FOOD PRODUCTS</text>
+  </g>
+  <g fill="#d79b3a"><ellipse cx="320" cy="725" rx="34" ry="16" transform="rotate(25 320 725)"/><ellipse cx="365" cy="750" rx="25" ry="12" transform="rotate(-20 365 750)"/><ellipse cx="850" cy="730" rx="32" ry="15" transform="rotate(-30 850 730)"/><ellipse cx="900" cy="752" rx="24" ry="12" transform="rotate(20 900 752)"/></g>
+</svg>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Natural nutrition ingredients</title><desc id="desc">A bowl of natural grains on a warm background.</desc>
+  <defs><radialGradient id="bg" cx="50%" cy="35%" r="80%"><stop stop-color="#493321"/><stop offset=".6" stop-color="#1e1e20"/><stop offset="1" stop-color="#0e0e0f"/></radialGradient><linearGradient id="bowl" x2="1" y2="1"><stop stop-color="#f5e9d8"/><stop offset="1" stop-color="#b98338"/></linearGradient></defs>
+  <rect width="1200" height="800" fill="url(#bg)"/><circle cx="170" cy="155" r="145" fill="#d79b3a" opacity=".06"/><circle cx="1030" cy="650" r="210" fill="#7b3f21" opacity=".13"/>
+  <text x="600" y="155" text-anchor="middle" fill="#f5e9d8" font-family="Arial,sans-serif" font-size="48" font-weight="700" letter-spacing="5">NATURAL NUTRITION</text><text x="600" y="200" text-anchor="middle" fill="#d79b3a" font-family="Arial,sans-serif" font-size="20" letter-spacing="7">TRADITIONAL GOODNESS</text>
+  <ellipse cx="600" cy="655" rx="360" ry="70" fill="#000" opacity=".3"/><path d="M270 325q330 165 660 0l-80 300q-250 135-500 0Z" fill="url(#bowl)"/><ellipse cx="600" cy="340" rx="332" ry="108" fill="#6d421f"/><ellipse cx="600" cy="328" rx="305" ry="82" fill="#d79b3a"/>
+  <g fill="#f5d58c"><ellipse cx="410" cy="332" rx="38" ry="14" transform="rotate(18 410 332)"/><ellipse cx="500" cy="308" rx="31" ry="13" transform="rotate(-14 500 308)"/><ellipse cx="595" cy="348" rx="40" ry="15" transform="rotate(25 595 348)"/><ellipse cx="690" cy="310" rx="34" ry="13" transform="rotate(-24 690 310)"/><ellipse cx="790" cy="343" rx="38" ry="14" transform="rotate(12 790 343)"/></g>
+</svg>

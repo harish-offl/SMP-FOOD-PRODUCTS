@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900" role="img" aria-labelledby="title desc">
+  <title id="title">SMP Food Products</title><desc id="desc">SMP natural family nutrition brand artwork.</desc>
+  <defs><radialGradient id="bg" cx="50%" cy="40%" r="65%"><stop stop-color="#57351f"/><stop offset=".62" stop-color="#201915"/><stop offset="1" stop-color="#0e0e0f"/></radialGradient><linearGradient id="gold" x2="1" y2="1"><stop stop-color="#f5d58c"/><stop offset=".5" stop-color="#d79b3a"/><stop offset="1" stop-color="#7b3f21"/></linearGradient></defs>
+  <rect width="900" height="900" fill="url(#bg)"/><circle cx="450" cy="450" r="342" fill="none" stroke="#d79b3a" stroke-width="3" opacity=".45"/><circle cx="450" cy="450" r="298" fill="#171717" stroke="#7b3f21" stroke-width="8"/>
+  <path d="M452 258c94 68 122 172 48 278-110-22-173-102-135-198 18-45 48-68 87-80Z" fill="url(#gold)"/><path d="M451 293c-5 105-5 203 3 287M444 390c-58-38-101-46-136-39M454 444c62-43 108-53 149-47" fill="none" stroke="#4a2512" stroke-width="12" stroke-linecap="round"/>
+  <text x="450" y="647" text-anchor="middle" fill="#f5e9d8" font-family="Arial,sans-serif" font-size="104" font-weight="800" letter-spacing="16">SMP</text><text x="450" y="704" text-anchor="middle" fill="#d79b3a" font-family="Arial,sans-serif" font-size="25" letter-spacing="10">FOOD PRODUCTS</text>
+</svg>
