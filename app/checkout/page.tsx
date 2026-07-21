@@ -102,15 +102,15 @@ export default function CheckoutPage() {
         </div>
       </div>
 
-      <div className="section-container py-12">
-        <div className="grid gap-12 lg:grid-cols-[1fr,450px]">
+      <div className="section-container py-10 sm:py-12">
+        <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr),minmax(360px,450px)] lg:gap-12">
 
           {/* Checkout Form */}
           <div>
             <form id="checkout-form" onSubmit={handleSubmit} className="space-y-8">
 
               {/* Contact Info */}
-              <div className="rounded-3xl bg-[#1E1E20] border border-white/[0.06] p-6 sm:p-8">
+              <div className="rounded-3xl border border-white/[0.06] bg-[#1E1E20] p-5 sm:p-8">
                 <h2 className="text-xl font-bold text-white mb-6">Contact Information</h2>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2 sm:col-span-2">
@@ -129,7 +129,7 @@ export default function CheckoutPage() {
               </div>
 
               {/* Delivery Address */}
-              <div className="rounded-3xl bg-[#1E1E20] border border-white/[0.06] p-6 sm:p-8">
+              <div className="rounded-3xl border border-white/[0.06] bg-[#1E1E20] p-5 sm:p-8">
                 <h2 className="text-xl font-bold text-white mb-6">Delivery Address</h2>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="space-y-2">
@@ -171,7 +171,7 @@ export default function CheckoutPage() {
               </div>
 
               {/* Payment Method */}
-              <div className="rounded-3xl bg-[#1E1E20] border border-white/[0.06] p-6 sm:p-8">
+              <div className="rounded-3xl border border-white/[0.06] bg-[#1E1E20] p-5 sm:p-8">
                 <h2 className="text-xl font-bold text-white mb-6">Payment Method</h2>
                 <div className="space-y-3">
                   {paymentMethods.map((method) => (
@@ -179,13 +179,13 @@ export default function CheckoutPage() {
                       key={method.value}
                       type="button"
                       onClick={() => handlePaymentMethodChange(method.value)}
-                      className={`flex w-full items-center justify-between rounded-xl border-2 p-4 transition ${
+                      className={`flex min-h-14 w-full items-center justify-between rounded-xl border-2 p-3 text-left transition sm:p-4 ${
                         formData.paymentMethod === method.value
                           ? 'border-[#7B3F21] bg-[#7B3F21]/10'
                           : 'border-white/[0.06] bg-white/[0.02] hover:border-white/[0.12]'
                       }`}
                     >
-                      <div className="flex items-center gap-3">
+                      <div className="flex min-w-0 items-center gap-3">
                         <div className={`flex h-5 w-5 items-center justify-center rounded-full border-2 ${
                           formData.paymentMethod === method.value ? 'border-[#7B3F21]' : 'border-[#7A7A7A]'
                         }`}>
@@ -193,7 +193,7 @@ export default function CheckoutPage() {
                             <div className="h-2.5 w-2.5 rounded-full bg-[#7B3F21]"></div>
                           )}
                         </div>
-                        <span className="font-semibold text-white">{method.label}</span>
+                        <span className="text-sm font-semibold text-white sm:text-base">{method.label}</span>
                       </div>
                     </button>
                   ))}
@@ -205,22 +205,22 @@ export default function CheckoutPage() {
 
           {/* Order Summary Sticky */}
           <div>
-            <div className="sticky top-28 rounded-3xl bg-[#1E1E20] border border-white/[0.06] p-6 sm:p-8">
+            <div className="sticky top-28 rounded-3xl border border-white/[0.06] bg-[#1E1E20] p-5 sm:p-8">
               <h2 className="heading-serif text-2xl text-white">Order Details</h2>
 
               <div className="mt-6 space-y-4 max-h-[300px] overflow-y-auto pr-2">
                 {items.map((item, idx) => {
                   const price = item.variant ? item.variant.salePrice : item.product.salePrice;
                   return (
-                    <div key={idx} className="flex gap-4 border-b border-white/[0.06] pb-4">
+                    <div key={idx} className="flex gap-3 border-b border-white/[0.06] pb-4 sm:gap-4">
                       <div className="h-16 w-16 shrink-0 rounded-lg bg-[#262628] p-1">
                         <img src={item.product.images[0]} alt="" className="h-full w-full object-contain" />
                       </div>
-                      <div className="flex flex-1 flex-col justify-center">
+                      <div className="flex min-w-0 flex-1 flex-col justify-center">
                         <p className="text-sm font-bold text-white">{item.product.name}</p>
                         <p className="text-xs text-[#7A7A7A]">Qty: {item.quantity} × {item.variant ? item.variant.weight : item.product.weight}</p>
                       </div>
-                      <div className="flex items-center text-sm font-bold text-white">
+                      <div className="flex shrink-0 items-center text-xs font-bold text-white sm:text-sm">
                         {formatPrice(price * item.quantity)}
                       </div>
                     </div>

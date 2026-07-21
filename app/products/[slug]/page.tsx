@@ -65,7 +65,7 @@ export default function ProductDetailsPage({
   return (
     <main className="min-h-screen bg-[#0E0E0F] pt-[5.5rem]">
       <div className="border-b border-white/[0.06] bg-[#171717] py-4">
-        <div className="section-container flex text-sm text-[#7A7A7A]">
+        <div className="section-container flex items-center overflow-x-auto whitespace-nowrap text-xs text-[#7A7A7A] sm:text-sm">
           <a href="/" className="hover:text-white transition">
             Home
           </a>
@@ -78,17 +78,17 @@ export default function ProductDetailsPage({
         </div>
       </div>
 
-      <div className="section-container py-12">
+      <div className="section-container py-8 sm:py-12">
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="space-y-4">
-            <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/[0.06] bg-[#1E1E20] p-8">
+            <div className="relative aspect-square overflow-hidden rounded-3xl border border-white/[0.06] bg-[#1E1E20] p-4 sm:p-8">
               <img
                 src={product.images[0]}
                 alt={product.name}
                 className="h-full w-full object-contain"
               />
               {product.discount > 0 && (
-                <div className="absolute left-6 top-6 badge bg-[#7B3F21] text-white text-sm px-4 py-1.5">
+                <div className="badge absolute left-4 top-4 bg-[#7B3F21] px-3 py-1.5 text-xs text-white sm:left-6 sm:top-6 sm:px-4 sm:text-sm">
                   -{product.discount}% OFF
                 </div>
               )}
@@ -112,7 +112,7 @@ export default function ProductDetailsPage({
           </div>
 
           <div className="flex flex-col">
-            <div className="mb-4 flex items-center gap-2 text-sm">
+            <div className="mb-4 flex flex-wrap items-center gap-2 text-xs sm:text-sm">
               <span className="text-[#D79B3A] font-bold uppercase tracking-wider">
                 {product.category}
               </span>
@@ -130,8 +130,8 @@ export default function ProductDetailsPage({
 
             <h1 className="section-title">{product.name}</h1>
 
-            <div className="mt-6 flex items-end gap-3 border-b border-white/[0.06] pb-6">
-              <span className="text-4xl font-bold text-white">
+            <div className="mt-6 flex flex-wrap items-end gap-x-3 gap-y-1 border-b border-white/[0.06] pb-6">
+              <span className="text-3xl font-bold text-white sm:text-4xl">
                 {formatPrice(price)}
               </span>
               {originalPrice > price && (
@@ -139,12 +139,12 @@ export default function ProductDetailsPage({
                   {formatPrice(originalPrice)}
                 </span>
               )}
-              <span className="mb-2 text-sm text-[#7A7A7A]">
+              <span className="w-full text-xs text-[#7A7A7A] min-[420px]:mb-2 min-[420px]:w-auto sm:text-sm">
                 inclusive of all taxes
               </span>
             </div>
 
-            <p className="mt-6 text-lg leading-relaxed text-[#B8B8B8]">
+            <p className="mt-6 text-base leading-relaxed text-[#B8B8B8] sm:text-lg">
               {product.shortDescription}
             </p>
 
@@ -158,7 +158,7 @@ export default function ProductDetailsPage({
                     <button
                       key={variant.id}
                       onClick={() => setSelectedVariant(variant)}
-                      className={`rounded-xl border-2 px-5 py-3 text-sm font-semibold transition ${
+                      className={`min-h-11 rounded-xl border-2 px-4 py-2.5 text-sm font-semibold transition sm:px-5 sm:py-3 ${
                         selectedVariant?.id === variant.id
                           ? 'border-[#7B3F21] bg-[#7B3F21]/10 text-[#D79B3A]'
                           : 'border-white/[0.06] bg-[#1E1E20] text-[#B8B8B8] hover:border-white/[0.12]'
@@ -212,7 +212,7 @@ export default function ProductDetailsPage({
               Buy Instantly via WhatsApp
             </a>
 
-            <div className="mt-10 grid grid-cols-2 gap-4 rounded-2xl border border-white/[0.06] bg-[#1E1E20] p-6">
+            <div className="mt-8 grid grid-cols-1 gap-4 rounded-2xl border border-white/[0.06] bg-[#1E1E20] p-5 min-[380px]:grid-cols-2 sm:mt-10 sm:p-6">
               <div className="flex items-center gap-3">
                 <ShieldCheck className="text-[#D79B3A]" size={24} />
                 <span className="text-sm font-semibold text-white">
@@ -235,15 +235,15 @@ export default function ProductDetailsPage({
           </div>
         </div>
 
-        <div className="mt-20">
-          <div className="flex gap-8 border-b border-white/[0.06] overflow-x-auto">
+        <div className="mt-14 sm:mt-20">
+          <div className="scrollbar-hide flex gap-5 overflow-x-auto border-b border-white/[0.06] sm:gap-8">
             {(
               ['details', 'ingredients', 'nutrition', 'preparation'] as const
             ).map((tab) => (
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`pb-4 text-lg font-bold capitalize transition whitespace-nowrap ${
+                className={`whitespace-nowrap pb-4 text-base font-bold capitalize transition sm:text-lg ${
                   activeTab === tab
                     ? 'border-b-2 border-[#7B3F21] text-[#D79B3A]'
                     : 'text-[#7A7A7A] hover:text-white'
@@ -261,7 +261,7 @@ export default function ProductDetailsPage({
                 animate={{ opacity: 1 }}
                 className="space-y-6"
               >
-                <p className="text-lg leading-relaxed text-[#B8B8B8]">
+                <p className="text-base leading-relaxed text-[#B8B8B8] sm:text-lg">
                   {product.fullDescription}
                 </p>
                 <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -317,7 +317,7 @@ export default function ProductDetailsPage({
                 <h4 className="text-xl font-bold text-white mb-4">
                   What goes into this?
                 </h4>
-                <p className="text-lg text-[#B8B8B8] leading-relaxed p-6 bg-[#1E1E20] rounded-2xl border border-white/[0.06]">
+                <p className="rounded-2xl border border-white/[0.06] bg-[#1E1E20] p-4 text-base leading-relaxed text-[#B8B8B8] sm:p-6 sm:text-lg">
                   {product.ingredients}
                 </p>
                 {product.allergyInfo && (
@@ -337,17 +337,17 @@ export default function ProductDetailsPage({
                 <h4 className="text-xl font-bold text-white mb-4">
                   Nutritional Facts
                 </h4>
-                <div className="overflow-hidden rounded-2xl border border-white/[0.06] bg-[#1E1E20]">
-                  <table className="w-full text-left text-sm">
+                <div className="overflow-x-auto rounded-2xl border border-white/[0.06] bg-[#1E1E20]">
+                  <table className="min-w-[32rem] w-full text-left text-sm">
                     <thead className="bg-[#262628]">
                       <tr>
-                        <th className="px-6 py-4 font-bold text-white">
+                        <th className="px-4 py-4 font-bold text-white sm:px-6">
                           Nutrient
                         </th>
-                        <th className="px-6 py-4 font-bold text-white">
+                        <th className="px-4 py-4 font-bold text-white sm:px-6">
                           Value
                         </th>
-                        <th className="px-6 py-4 font-bold text-white">
+                        <th className="px-4 py-4 font-bold text-white sm:px-6">
                           Unit
                         </th>
                       </tr>
@@ -355,13 +355,13 @@ export default function ProductDetailsPage({
                     <tbody className="divide-y divide-white/[0.06]">
                       {product.nutritionData.map((data, i) => (
                         <tr key={i} className="hover:bg-white/[0.02]">
-                          <td className="px-6 py-4 font-medium text-white">
+                          <td className="px-4 py-4 font-medium text-white sm:px-6">
                             {data.nutrient}
                           </td>
-                          <td className="px-6 py-4 text-[#B8B8B8]">
+                          <td className="px-4 py-4 text-[#B8B8B8] sm:px-6">
                             {data.value}
                           </td>
-                          <td className="px-6 py-4 text-[#7A7A7A]">
+                          <td className="px-4 py-4 text-[#7A7A7A] sm:px-6">
                             {data.unit}
                           </td>
                         </tr>
@@ -401,7 +401,7 @@ export default function ProductDetailsPage({
         </div>
 
         {relatedProducts.length > 0 && (
-          <div className="mt-24">
+          <div className="mt-16 sm:mt-24">
             <h2 className="section-title">You May Also Like</h2>
             <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
               {relatedProducts.map((p) => (

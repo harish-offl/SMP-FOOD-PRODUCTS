@@ -76,7 +76,7 @@ export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#0E0E0F] pb-16 pt-[4.5rem]">
       {/* ═══════ HERO ═══════ */}
-      <section className="relative overflow-hidden px-5 py-12 sm:px-8 lg:px-12 lg:py-20">
+      <section className="relative overflow-hidden px-4 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-20">
         <div className="absolute left-1/4 top-0 h-[400px] w-[400px] rounded-full bg-[#7B3F21]/10 blur-[120px]" />
         <div className="absolute right-1/4 bottom-0 h-[300px] w-[300px] rounded-full bg-[#D79B3A]/8 blur-[100px]" />
 
@@ -112,7 +112,7 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="mt-8 grid grid-cols-3 gap-4 border-t border-white/[0.06] pt-6">
+            <div className="mt-8 grid grid-cols-3 gap-2 border-t border-white/[0.06] pt-6 sm:gap-4">
               {stats.map((stat) => (
                 <div key={stat.label}>
                   <p className="text-lg font-bold text-white sm:text-xl">{stat.value}</p>
@@ -131,8 +131,8 @@ export default function HomePage() {
             </div>
 
             {[
-              { name: 'Banana Malt', pos: 'top-2 -right-2 sm:-right-6', delay: 0.6 },
-              { name: 'ABCD Malt', pos: 'bottom-16 -left-4 sm:-left-8', delay: 0.8 },
+              { name: 'Banana Malt', pos: 'top-2 right-0 sm:-right-6', delay: 0.6 },
+              { name: 'ABCD Malt', pos: 'bottom-16 left-0 sm:-left-8', delay: 0.8 },
               { name: 'Health Mix', pos: '-bottom-2 right-4 sm:right-0', delay: 1.0 },
             ].map((item) => (
               <motion.div key={item.name} initial={{ y: 16, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: item.delay }}
@@ -148,7 +148,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ NUTRITION CATEGORIES ═══════ */}
-      <section className="px-5 sm:px-8 lg:px-12 mt-12">
+      <section className="mt-12 px-4 sm:px-8 lg:px-12">
         <div className="mx-auto w-full max-w-[1200px]">
           <div className="text-center">
             <p className="section-label justify-center">Nutrition Categories</p>
@@ -158,7 +158,7 @@ export default function HomePage() {
             {nutritionCategories.map((cat, i) => (
               <motion.div key={cat.name} {...fadeUp} transition={{ delay: i * 0.06 }} className="min-w-0">
                 <Link href={`/products?category=${cat.name.toLowerCase().replace(/\s+/g, '-')}`}
-                  className="group flex flex-col items-center gap-3 rounded-2xl border border-white/[0.06] bg-[#1E1E20] p-5 transition-all hover:border-white/[0.12] hover:bg-[#262628]">
+                  className="group flex h-full flex-col items-center gap-3 rounded-2xl border border-white/[0.06] bg-[#1E1E20] p-4 transition-all hover:border-white/[0.12] hover:bg-[#262628] sm:p-5">
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl transition-transform group-hover:scale-110" style={{ background: `${cat.color}18` }}>
                     <cat.icon size={22} style={{ color: cat.color }} />
                   </div>
@@ -171,7 +171,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ FEATURED PRODUCTS ═══════ */}
-      <section className="px-5 sm:px-8 lg:px-12 mt-14">
+      <section className="mt-14 px-4 sm:px-8 lg:px-12">
         <div className="mx-auto w-full max-w-[1200px]">
           <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
             <div>
@@ -195,9 +195,9 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ PROMO BANNER ═══════ */}
-      <section className="px-5 sm:px-8 lg:px-12 mt-14">
+      <section className="mt-14 px-4 sm:px-8 lg:px-12">
         <div className="mx-auto w-full max-w-[1200px]">
-          <div className="relative overflow-hidden rounded-3xl border border-white/[0.06] bg-gradient-to-br from-[#1E1E20] to-[#262628] px-6 py-10 sm:px-12 sm:py-14 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="relative flex flex-col items-center justify-between gap-6 overflow-hidden rounded-3xl border border-white/[0.06] bg-gradient-to-br from-[#1E1E20] to-[#262628] px-5 py-9 sm:px-12 sm:py-14 md:flex-row">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(215,155,58,0.08),transparent_70%)]" />
             <div className="relative z-10 max-w-lg text-center md:text-left">
               <p className="text-xs font-bold uppercase tracking-widest text-[#D79B3A]">Special Offer</p>
@@ -222,7 +222,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ BEST SELLERS ═══════ */}
-      <section className="px-5 sm:px-8 lg:px-12 mt-14">
+      <section className="mt-14 px-4 sm:px-8 lg:px-12">
         <div className="mx-auto w-full max-w-[1200px]">
           <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
             <div>
@@ -247,7 +247,7 @@ export default function HomePage() {
 
       {/* ═══════ WHY CHOOSE SMP ═══════ */}
       <section className="mt-14 border-y border-white/[0.06] bg-[#171717]">
-        <div className="px-5 sm:px-8 lg:px-12 py-14">
+        <div className="px-4 py-12 sm:px-8 sm:py-14 lg:px-12">
           <div className="mx-auto w-full max-w-[1200px]">
             <div className="text-center">
               <p className="section-label justify-center">Why Choose SMP</p>
@@ -270,7 +270,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ HEALTH BENEFITS ═══════ */}
-      <section className="px-5 sm:px-8 lg:px-12 mt-14">
+      <section className="mt-14 px-4 sm:px-8 lg:px-12">
         <div className="mx-auto w-full max-w-[1200px]">
           <div className="text-center">
             <p className="section-label justify-center">Health Benefits</p>
@@ -293,7 +293,7 @@ export default function HomePage() {
 
       {/* ═══════ RECIPES ═══════ */}
       <section className="mt-14 border-y border-white/[0.06] bg-[#171717]">
-        <div className="px-5 sm:px-8 lg:px-12 py-14">
+        <div className="px-4 py-12 sm:px-8 sm:py-14 lg:px-12">
           <div className="mx-auto w-full max-w-[1200px]">
             <div className="flex flex-col items-start justify-between gap-3 sm:flex-row sm:items-end">
               <div>
@@ -324,7 +324,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ CUSTOMER REVIEWS ═══════ */}
-      <section className="px-5 sm:px-8 lg:px-12 mt-14">
+      <section className="mt-14 px-4 sm:px-8 lg:px-12">
         <div className="mx-auto w-full max-w-[1200px]">
           <div className="text-center">
             <p className="section-label justify-center">Customer Reviews</p>
@@ -358,9 +358,9 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ CTA ═══════ */}
-      <section className="px-5 sm:px-8 lg:px-12 mt-14">
+      <section className="mt-14 px-4 sm:px-8 lg:px-12">
         <div className="mx-auto w-full max-w-[1200px]">
-          <div className="relative overflow-hidden rounded-3xl border border-white/[0.06] bg-gradient-to-br from-[#7B3F21] to-[#4A2512] px-6 py-12 text-center sm:px-12">
+          <div className="relative overflow-hidden rounded-3xl border border-white/[0.06] bg-gradient-to-br from-[#7B3F21] to-[#4A2512] px-5 py-10 text-center sm:px-12 sm:py-12">
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(215,155,58,0.15),transparent_70%)]" />
             <div className="relative z-10">
               <Package size={40} className="mx-auto text-[#D79B3A]" />

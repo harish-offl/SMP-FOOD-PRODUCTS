@@ -32,11 +32,11 @@ export default function CartPage() {
 
   return (
     <main className="min-h-screen bg-[#0E0E0F] pt-[4.5rem]">
-      <div className="section-container py-12 lg:py-16">
-        <h1 className="heading-serif text-4xl text-white">Shopping Cart</h1>
+      <div className="section-container py-10 sm:py-12 lg:py-16">
+        <h1 className="heading-serif text-3xl text-white sm:text-4xl">Shopping Cart</h1>
         <p className="mt-2 text-[#B8B8B8]">{items.length} {items.length === 1 ? 'item' : 'items'} in your cart</p>
 
-        <div className="mt-10 grid gap-10 lg:grid-cols-[1fr,400px]">
+        <div className="mt-8 grid gap-8 lg:mt-10 lg:grid-cols-[minmax(0,1fr),minmax(320px,400px)] lg:gap-10">
           {/* Cart Items */}
           <div className="space-y-6">
             <AnimatePresence>
@@ -55,7 +55,7 @@ export default function CartPage() {
                     className="flex flex-col gap-4 rounded-2xl bg-[#1E1E20] border border-white/[0.06] p-4 sm:flex-row sm:items-center sm:gap-6 sm:p-6"
                   >
                     {/* Product Image */}
-                    <Link href={`/products/${item.product.slug}`} className="shrink-0 rounded-xl bg-[#262628] p-2">
+                    <Link href={`/products/${item.product.slug}`} className="self-center shrink-0 rounded-xl bg-[#262628] p-2 sm:self-auto">
                       <img
                         src={item.product.images[0]}
                         alt={item.product.name}
@@ -65,14 +65,14 @@ export default function CartPage() {
 
                     {/* Product Details */}
                     <div className="flex flex-1 flex-col">
-                      <div className="flex justify-between gap-4">
-                        <div>
+                      <div className="flex flex-col gap-2 min-[400px]:flex-row min-[400px]:justify-between min-[400px]:gap-4">
+                        <div className="min-w-0">
                           <Link href={`/products/${item.product.slug}`} className="text-lg font-bold text-white hover:text-[#D79B3A]">
                             {item.product.name}
                           </Link>
                           <p className="mt-1 text-sm text-[#7A7A7A]">Variant: {weight}</p>
                         </div>
-                        <div className="text-right">
+                        <div className="shrink-0 min-[400px]:text-right">
                           <p className="text-lg font-bold text-white">{formatPrice(price * item.quantity)}</p>
                           {item.quantity > 1 && (
                             <p className="text-xs text-[#7A7A7A]">{formatPrice(price)} each</p>
@@ -80,7 +80,7 @@ export default function CartPage() {
                         </div>
                       </div>
 
-                      <div className="mt-6 flex items-center justify-between">
+                      <div className="mt-5 flex items-center justify-between gap-3 sm:mt-6">
                         {/* Quantity Controls */}
                         <div className="flex items-center rounded-lg border border-white/[0.06] bg-[#262628] p-1">
                           <button
@@ -149,7 +149,7 @@ export default function CartPage() {
 
               <Link
                 href="/checkout"
-                className="btn-green mt-8 w-full !py-4 !text-base text-center inline-block shadow-md hover:shadow-lg"
+              className="btn-green mt-8 w-full !py-4 !text-center !text-sm shadow-md hover:shadow-lg sm:!text-base"
               >
                 Proceed to Checkout <ArrowRight size={18} className="inline ml-1" />
               </Link>

@@ -1,6 +1,7 @@
 node_modules/
 .next/
 .next-stale-*/
+.responsive-check/
 out/
 .DS_Store
 npm-debug.log*

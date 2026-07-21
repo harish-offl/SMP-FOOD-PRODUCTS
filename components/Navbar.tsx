@@ -157,7 +157,7 @@ export function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 28, stiffness: 280 }}
-              className="absolute right-0 top-0 h-full w-[85%] max-w-sm border-l border-white/[0.06] bg-[#171717] px-6 py-8"
+              className="absolute right-0 top-0 h-full w-[88%] max-w-sm overflow-y-auto border-l border-white/[0.06] bg-[#171717] px-5 pb-[max(2rem,env(safe-area-inset-bottom))] pt-[max(2rem,env(safe-area-inset-top))] sm:px-6"
               onClick={(e) => e.stopPropagation()}
             >
               <div className="flex items-center justify-between">

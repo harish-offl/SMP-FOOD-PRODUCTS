@@ -71,7 +71,7 @@ export default function VideosPage() {
   return (
     <main className="min-h-screen bg-[#0E0E0F] pt-[4.5rem]">
       {/* Header */}
-      <div className="bg-[#171717] py-16 lg:py-20 text-center relative overflow-hidden border-b border-white/[0.06]">
+      <div className="relative overflow-hidden border-b border-white/[0.06] bg-[#171717] py-12 text-center sm:py-16 lg:py-20">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#D79B3A] via-transparent to-transparent"></div>
         <div className="section-container relative z-10">
           <h1 className="heading-serif text-4xl text-white sm:text-5xl">Shop By Videos</h1>
@@ -150,11 +150,11 @@ export default function VideosPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-3 backdrop-blur-sm sm:p-4"
             onClick={() => setActiveVideo(null)}
           >
             <button 
-              className="absolute right-6 top-6 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition"
+              className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-white transition hover:bg-white/20 sm:right-6 sm:top-6"
               onClick={() => setActiveVideo(null)}
             >
               <X size={24} />
@@ -178,7 +178,7 @@ export default function VideosPage() {
                   allowFullScreen
                 ></iframe>
               </div>
-              <div className="bg-[#1E1E20] p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 border-t border-white/[0.06]">
+              <div className="flex flex-col items-start justify-between gap-4 border-t border-white/[0.06] bg-[#1E1E20] p-4 sm:flex-row sm:items-center sm:p-6">
                 <div>
                   <h3 className="text-xl font-bold text-white">{activeVideo.title}</h3>
                   <p className="text-sm text-[#7A7A7A] mt-1">Featured: {activeVideo.productName}</p>

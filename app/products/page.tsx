@@ -57,15 +57,15 @@ export default function ProductsPage() {
 
           <button
             onClick={() => setIsFilterOpen(!isFilterOpen)}
-            className="flex items-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.08] md:hidden"
+            className="flex min-h-12 w-full items-center justify-center gap-2 rounded-full border border-white/[0.06] bg-white/[0.04] px-5 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.08] sm:w-auto lg:hidden"
           >
             <Filter size={16} />
             Categories
           </button>
         </div>
 
-        <div className="mt-8 grid gap-8 md:grid-cols-[240px,1fr] lg:grid-cols-[280px,1fr]">
-          <aside className={`md:block ${isFilterOpen ? 'block' : 'hidden'}`}>
+        <div className="mt-8 grid gap-8 lg:grid-cols-[260px,1fr] xl:grid-cols-[280px,1fr]">
+          <aside className={`lg:block ${isFilterOpen ? 'block' : 'hidden'}`}>
             <div className="sticky top-28 rounded-3xl bg-[#1E1E20] p-6 border border-white/[0.06]">
               <h3 className="font-bold text-white mb-6 uppercase tracking-wider text-xs">Categories</h3>
               <ul className="space-y-2">
@@ -107,7 +107,7 @@ export default function ProductsPage() {
 
           <div>
             {displayedProducts.length > 0 ? (
-              <motion.div layout className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              <motion.div layout className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-3">
                 <AnimatePresence>
                   {displayedProducts.map(product => (
                     <motion.div

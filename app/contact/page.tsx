@@ -31,7 +31,7 @@ export default function ContactPage() {
   return (
     <main className="min-h-screen bg-[#0E0E0F] pt-[4.5rem]">
       {/* Header */}
-      <div className="bg-[#171717] py-16 lg:py-20 text-center border-b border-white/[0.06]">
+      <div className="border-b border-white/[0.06] bg-[#171717] py-12 text-center sm:py-16 lg:py-20">
         <div className="section-container">
           <h1 className="heading-serif text-4xl text-white sm:text-5xl">Get In Touch</h1>
           <p className="mx-auto mt-4 max-w-2xl text-[#7A7A7A]">
@@ -40,8 +40,8 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <div className="section-container py-16 lg:py-24">
-        <div className="grid gap-16 lg:grid-cols-[1fr,1.5fr] items-start">
+      <div className="section-container py-12 sm:py-16 lg:py-24">
+        <div className="grid items-start gap-10 lg:grid-cols-[1fr,1.5fr] lg:gap-16">
           
           {/* Contact Info */}
           <div className="space-y-8">
@@ -91,8 +91,8 @@ export default function ContactPage() {
           </div>
 
           {/* Form */}
-          <div className="rounded-[2.5rem] bg-[#1E1E20] p-8 sm:p-12 border border-white/[0.06]">
-            <h2 className="heading-serif text-3xl text-white mb-8">Send a Message</h2>
+          <div className="rounded-3xl border border-white/[0.06] bg-[#1E1E20] p-5 sm:rounded-[2.5rem] sm:p-10 lg:p-12">
+            <h2 className="heading-serif mb-6 text-2xl text-white sm:mb-8 sm:text-3xl">Send a Message</h2>
             
             {success && (
               <div className="mb-8 rounded-xl bg-[#2E7D32]/10 p-4 text-[#2E7D32] flex items-center gap-3">

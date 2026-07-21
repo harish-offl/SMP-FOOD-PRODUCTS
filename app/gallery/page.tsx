@@ -70,12 +70,12 @@ export default function GalleryPage() {
                   <img src={image.src} alt={image.caption} className="w-full h-full object-contain opacity-80 transition-transform duration-700 group-hover:scale-110" />
                 </div>
                 
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100 flex flex-col justify-end p-6">
-                  <p className="text-white font-bold text-lg translate-y-4 group-hover:translate-y-0 transition-transform duration-300">{image.caption}</p>
-                  <p className="text-white/80 text-sm uppercase tracking-wider translate-y-4 group-hover:translate-y-0 transition-transform duration-300 delay-75">{image.category}</p>
+                <div className="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/70 via-black/20 to-transparent p-4 opacity-100 transition-opacity duration-300 sm:p-6 md:opacity-0 md:group-hover:opacity-100">
+                  <p className="text-base font-bold text-white transition-transform duration-300 md:translate-y-4 md:group-hover:translate-y-0 sm:text-lg">{image.caption}</p>
+                  <p className="text-xs uppercase tracking-wider text-white/80 transition-transform delay-75 duration-300 md:translate-y-4 md:group-hover:translate-y-0 sm:text-sm">{image.category}</p>
                 </div>
                 
-                <div className="absolute top-4 right-4 h-10 w-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute right-3 top-3 flex h-10 w-10 items-center justify-center rounded-full bg-white/10 text-white opacity-100 backdrop-blur-md transition-opacity md:right-4 md:top-4 md:opacity-0 md:group-hover:opacity-100">
                   <ZoomIn size={18} />
                 </div>
               </motion.div>
@@ -95,7 +95,7 @@ export default function GalleryPage() {
             onClick={() => setSelectedImage(null)}
           >
             <button 
-              className="absolute right-6 top-6 rounded-full bg-white/10 p-2 text-white hover:bg-white/20 transition z-10"
+              className="absolute right-3 top-3 z-10 flex h-11 w-11 items-center justify-center rounded-full bg-black/50 text-white transition hover:bg-white/20 sm:right-6 sm:top-6"
               onClick={() => setSelectedImage(null)}
             >
               <X size={24} />

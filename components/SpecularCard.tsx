@@ -119,7 +119,13 @@ export function SpecularCard({
   useEffect(() => {
     const card = cardRef.current;
     const fx = fxRef.current;
-    if (!card || !fx || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (
+      !card ||
+      !fx ||
+      window.matchMedia(
+        '(prefers-reduced-motion: reduce), (hover: none), (pointer: coarse)'
+      ).matches
+    ) {
       return;
     }
 

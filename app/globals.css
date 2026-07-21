@@ -34,6 +34,29 @@ body {
   overflow-x: hidden;
 }
 
+html,
+body {
+  max-width: 100%;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+  min-width: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+li,
+span {
+  overflow-wrap: break-word;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -78,6 +101,12 @@ img {
 @media (min-width: 768px) {
   .section-container {
     width: min(100% - 48px, 1280px);
+  }
+}
+
+@media (max-width: 359px) {
+  .section-container {
+    width: min(100% - 24px, 1280px);
   }
 }
 

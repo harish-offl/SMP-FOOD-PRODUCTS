@@ -21,20 +21,20 @@ export default function DevelopersPage() {
         <div className="mx-auto max-w-4xl">
           
           {/* Developer Card */}
-          <div className="relative rounded-[2.5rem] bg-[#1E1E20] p-8 sm:p-12 border border-white/[0.06] overflow-hidden">
+          <div className="relative overflow-hidden rounded-3xl border border-white/[0.06] bg-[#1E1E20] p-5 sm:rounded-[2.5rem] sm:p-10 lg:p-12">
             <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#D79B3A]/5 blur-3xl"></div>
             
-            <div className="relative z-10 flex flex-col md:flex-row gap-10 items-center md:items-start">
+            <div className="relative z-10 flex flex-col items-center gap-7 sm:gap-10 md:flex-row md:items-start">
               
               {/* Avatar / Initials */}
-              <div className="flex h-32 w-32 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-[#D79B3A] to-[#7B3F21] text-5xl font-bold text-white shadow-lg">
+              <div className="flex h-24 w-24 shrink-0 items-center justify-center rounded-3xl bg-gradient-to-br from-[#D79B3A] to-[#7B3F21] text-4xl font-bold text-white shadow-lg sm:h-32 sm:w-32 sm:text-5xl">
                 A
               </div>
               
               {/* Info */}
               <div className="text-center md:text-left flex-1">
                 <h2 className="heading-serif text-3xl text-white">Annamalai</h2>
-                <p className="mt-2 inline-flex rounded-full bg-[#D79B3A]/10 px-4 py-1 text-sm font-semibold text-[#D79B3A] border border-[#D79B3A]/20">
+                <p className="mt-2 inline-flex max-w-full rounded-2xl border border-[#D79B3A]/20 bg-[#D79B3A]/10 px-3 py-1 text-sm font-semibold text-[#D79B3A] sm:rounded-full sm:px-4">
                   Lead Full-Stack Developer & UI/UX Designer
                 </p>
                 

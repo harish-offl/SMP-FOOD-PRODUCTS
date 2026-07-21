@@ -35,7 +35,7 @@ export function Footer() {
             </p>
           </div>
           <form
-            className="flex w-full max-w-md gap-2"
+            className="flex w-full max-w-md flex-col gap-2 sm:flex-row"
             onSubmit={(e) => e.preventDefault()}
           >
             <input
@@ -45,7 +45,7 @@ export function Footer() {
             />
             <button
               type="submit"
-              className="shrink-0 rounded-xl bg-[#7B3F21] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#9A5A3A]"
+              className="min-h-12 w-full shrink-0 rounded-xl bg-[#7B3F21] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#9A5A3A] sm:w-auto"
             >
               Subscribe
             </button>
@@ -54,7 +54,7 @@ export function Footer() {
       </div>
 
       {/* Main Footer */}
-      <div className="section-container grid gap-10 py-12 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="section-container grid gap-10 py-10 sm:grid-cols-2 sm:py-12 lg:grid-cols-4">
         {/* Brand */}
         <div>
           <Link href="/" className="flex items-center gap-2">

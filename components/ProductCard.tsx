@@ -40,7 +40,7 @@ export function ProductCard({ product }: ProductCardProps) {
       {/* Image Section */}
       <Link
         href={`/products/${product.slug}`}
-        className="relative block h-52 w-full overflow-hidden bg-gradient-to-br from-[#1E1E20] to-[#262628] sm:h-56"
+        className="relative block h-48 w-full overflow-hidden bg-gradient-to-br from-[#1E1E20] to-[#262628] sm:h-56"
       >
         {/* Badges - top left */}
         <div className="absolute left-3 top-3 z-20 flex flex-col gap-1.5">
@@ -78,7 +78,7 @@ export function ProductCard({ product }: ProductCardProps) {
       </Link>
 
       {/* Content Section */}
-      <div className="flex flex-1 flex-col gap-2 p-4">
+      <div className="flex flex-1 flex-col gap-2 p-3.5 sm:p-4">
         {/* Category + Rating */}
         <div className="flex items-center justify-between">
           <span className="truncate text-[10px] font-semibold uppercase tracking-[0.18em] text-smp-muted">
@@ -125,7 +125,7 @@ export function ProductCard({ product }: ProductCardProps) {
         <div className="mt-auto flex gap-2 pt-2">
           <button
             onClick={handleAddToCart}
-            className="flex h-10 flex-1 items-center justify-center gap-1.5 rounded-xl bg-[#7B3F21] text-xs font-semibold text-white transition hover:bg-[#9A5A3A]"
+            className="flex min-h-11 flex-1 items-center justify-center gap-1.5 rounded-xl bg-[#7B3F21] px-2 text-xs font-semibold text-white transition hover:bg-[#9A5A3A]"
           >
             <ShoppingBag size={14} /> Add to Cart
           </button>
@@ -137,7 +137,7 @@ export function ProductCard({ product }: ProductCardProps) {
             )}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.04] text-smp-secondary transition hover:bg-[#2E7D32] hover:text-white hover:border-[#2E7D32]"
+            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.04] text-smp-secondary transition hover:bg-[#2E7D32] hover:text-white hover:border-[#2E7D32]"
             aria-label="Order on WhatsApp"
           >
             <Phone size={16} />
