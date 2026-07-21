@@ -10,6 +10,7 @@ yarn-error.log*
 yarn.lock
 pnpm-lock.yaml
 .env*
+!.env.example
 coverage/
 *.tsbuildinfo
 **/*.log

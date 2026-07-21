@@ -3,6 +3,7 @@ import './globals.css';
 import { CartProvider } from '@/store/CartContext';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { AuthProvider } from '@/components/AuthProvider';
 
 export const metadata: Metadata = {
   title: {
@@ -43,14 +44,22 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const googleAuthConfigured = Boolean(
+    process.env.AUTH_SECRET &&
+      process.env.AUTH_GOOGLE_ID &&
+      process.env.AUTH_GOOGLE_SECRET
+  );
+
   return (
     <html lang="en">
       <body>
-        <CartProvider>
-          <Navbar />
-          {children}
-          <Footer />
-        </CartProvider>
+        <AuthProvider googleAuthConfigured={googleAuthConfigured}>
+          <CartProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </CartProvider>
+        </AuthProvider>
       </body>
     </html>
   );

@@ -44,14 +44,6 @@ export function ProductCard({ product }: ProductCardProps) {
       >
         {/* Badges - top left */}
         <div className="absolute left-3 top-3 z-20 flex flex-col gap-1.5">
-          {product.discount > 0 && (
-            <span className="badge bg-[#7B3F21] text-white">
-              -{product.discount}%
-            </span>
-          )}
-          {product.bestseller && (
-            <span className="badge bg-[#D79B3A] text-black">Best Seller</span>
-          )}
           {product.newArrival && (
             <span className="badge bg-[#2E7D32] text-white">New</span>
           )}

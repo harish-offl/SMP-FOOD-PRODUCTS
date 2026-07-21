@@ -16,6 +16,7 @@ The website includes a complete product catalogue, product details, cart and che
 - Pointer-following specular card animation on supported desktop devices
 - Reduced-motion and touch-device fallbacks
 - Accessible navigation, buttons, labels, and image descriptions
+- Google OAuth customer sign-in and sign-out through Auth.js
 
 ## Technology stack
 
@@ -25,6 +26,7 @@ The website includes a complete product catalogue, product details, cart and che
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [OGL](https://github.com/oframe/ogl) for the specular card effect
+- [Auth.js](https://authjs.dev/) for Google authentication
 - [Lucide React](https://lucide.dev/) for icons
 - [jsPDF](https://github.com/parallax/jsPDF) for invoices
 
@@ -44,6 +46,14 @@ npm install
 ```
 
 ### Development server
+
+Copy the authentication environment template before starting:
+
+```bash
+copy .env.example .env.local
+```
+
+Set `AUTH_SECRET`, `AUTH_GOOGLE_ID`, and `AUTH_GOOGLE_SECRET` in `.env.local`.
 
 ```bash
 npm run dev
@@ -93,6 +103,29 @@ utils/                   WhatsApp ordering and invoice helpers
 | `/gallery` | Product and ingredient gallery |
 | `/about` | Brand story and manufacturing process |
 | `/contact` | Contact information and enquiry form |
+| `/login` | Google customer authentication |
+
+## Google login configuration
+
+1. Create an OAuth 2.0 Client in Google Cloud and choose **Web application**.
+2. Add `http://localhost:3000` as an authorized JavaScript origin.
+3. Add `http://localhost:3000/api/auth/callback/google` as an authorized redirect URI.
+4. Generate a secure Auth.js secret:
+
+   ```bash
+   node -e "console.log(require('crypto').randomBytes(32).toString('base64url'))"
+   ```
+
+   Copy the output into `AUTH_SECRET` in `.env.local`.
+5. Place the generated values in `.env.local` using `.env.example` as the template.
+
+For production, add the production origin and this callback URL in Google Cloud:
+
+```text
+https://your-domain.com/api/auth/callback/google
+```
+
+Set the same authentication environment variables in the deployment platform. Never commit `.env.local` or Google client secrets.
 
 ## Responsive design
 

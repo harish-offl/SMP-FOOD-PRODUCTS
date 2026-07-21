@@ -2,10 +2,11 @@
 
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Search, ShoppingBag, Phone, Heart, User } from 'lucide-react';
+import { Menu, X, Search, ShoppingBag, Phone } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useCart } from '@/store/CartContext';
 import { getWhatsAppChatUrl } from '@/utils/whatsapp';
+import { GoogleAuthButton } from '@/components/GoogleAuthButton';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -85,12 +86,7 @@ export function Navbar() {
             >
               <Search size={18} />
             </button>
-            <button
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.06] bg-white/[0.04] text-smp-secondary transition hover:bg-white/[0.08] hover:text-white"
-              aria-label="Wishlist"
-            >
-              <Heart size={18} />
-            </button>
+            <GoogleAuthButton />
             <Link
               href="/cart"
               className="relative inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/[0.06] bg-white/[0.04] text-smp-secondary transition hover:bg-white/[0.08] hover:text-white"
@@ -204,6 +200,10 @@ export function Navbar() {
               </div>
 
               <div className="mt-8 space-y-3 border-t border-white/[0.06] pt-6">
+                <GoogleAuthButton
+                  variant="full"
+                  onComplete={() => setMenuOpen(false)}
+                />
                 <Link
                   href="/cart"
                   onClick={() => setMenuOpen(false)}

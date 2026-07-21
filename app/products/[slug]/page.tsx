@@ -87,11 +87,6 @@ export default function ProductDetailsPage({
                 alt={product.name}
                 className="h-full w-full object-contain"
               />
-              {product.discount > 0 && (
-                <div className="badge absolute left-4 top-4 bg-[#7B3F21] px-3 py-1.5 text-xs text-white sm:left-6 sm:top-6 sm:px-4 sm:text-sm">
-                  -{product.discount}% OFF
-                </div>
-              )}
             </div>
             {product.images.length > 1 && (
               <div className="flex gap-4">
