@@ -197,27 +197,55 @@ export default function HomePage() {
       {/* ═══════ PROMO BANNER ═══════ */}
       <section className="mt-14 px-4 sm:px-8 lg:px-12">
         <div className="mx-auto w-full max-w-[1200px]">
-          <div className="relative flex flex-col items-center justify-between gap-6 overflow-hidden rounded-3xl border border-white/[0.06] bg-gradient-to-br from-[#1E1E20] to-[#262628] px-5 py-9 sm:px-12 sm:py-14 md:flex-row">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(215,155,58,0.08),transparent_70%)]" />
-            <div className="relative z-10 max-w-lg text-center md:text-left">
-              <p className="text-xs font-bold uppercase tracking-widest text-[#D79B3A]">Special Offer</p>
-              <h2 className="section-title mt-3">Get 15% Off Your First Combo!</h2>
-              <p className="mt-3 text-sm text-smp-secondary">
-                Use code WELCOME15 at checkout.
-              </p>
-              <div className="mt-6">
-                <a href={getWhatsAppChatUrl()} target="_blank" rel="noopener noreferrer" className="btn-green !py-3 !text-sm">
-                  Order Now <ArrowRight size={16} />
-                </a>
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: '-80px' }}
+            transition={{ duration: 0.7, ease: 'easeOut' }}
+            className="relative overflow-hidden rounded-3xl border border-white/[0.06] bg-[linear-gradient(135deg,rgba(30,30,32,0.98),rgba(46,47,50,0.96)_52%,rgba(20,20,21,0.98))] px-5 py-9 sm:px-12 sm:py-14"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(215,155,58,0.14),transparent_42%),radial-gradient(circle_at_bottom_left,_rgba(123,63,33,0.18),transparent_38%)]" />
+            <div className="absolute -left-16 top-1/2 h-40 w-40 -translate-y-1/2 rounded-full bg-[#D79B3A]/10 blur-3xl motion-safe:animate-pulse" />
+            <div className="absolute -right-10 top-10 h-28 w-28 rounded-full border border-[#D79B3A]/20" />
+
+            <div className="relative z-10 flex flex-col items-center justify-between gap-8 md:flex-row md:items-center">
+              <div className="max-w-xl text-center md:text-left">
+                <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#D79B3A]">Special Offer</p>
+                <h2 className="mt-3 text-3xl font-black leading-tight text-white sm:text-4xl">
+                  Get offer on your delivery
+                </h2>
+                <p className="mt-4 max-w-lg text-sm leading-6 text-smp-secondary sm:text-base">
+                  Enjoy free delivery on orders above ₹1000 and make your first combo feel even better.
+                </p>
+
+                <div className="mt-7">
+                  <a
+                    href={getWhatsAppChatUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="btn-green !py-3 !text-sm"
+                  >
+                    Order Now <ArrowRight size={16} />
+                  </a>
+                </div>
               </div>
+
+              <motion.div
+                animate={{ rotate: 360 }}
+                transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
+                className="relative flex h-32 w-32 shrink-0 items-center justify-center rounded-full border border-[#D79B3A]/20 bg-white/[0.03]"
+              >
+                <motion.div
+                  animate={{ scale: [1, 1.08, 1] }}
+                  transition={{ duration: 3.6, repeat: Infinity, ease: 'easeInOut' }}
+                  className="flex h-24 w-24 items-center justify-center rounded-full border border-[#D79B3A]/35 bg-[#0E0E0F]/70"
+                >
+                  <div className="h-16 w-16 rounded-full border border-dashed border-[#D79B3A]/55" />
+                </motion.div>
+                <div className="absolute inset-0 rounded-full border border-[#D79B3A]/15" />
+              </motion.div>
             </div>
-            <div className="relative z-10 flex h-32 w-32 shrink-0 items-center justify-center rounded-full border border-[#D79B3A]/30">
-              <div className="text-center">
-                <span className="block text-3xl font-bold text-white">15%</span>
-                <span className="block text-xs font-semibold uppercase tracking-widest text-[#D79B3A]">OFF</span>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </div>
       </section>
 

@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
+import { Mail, MapPin, ArrowRight } from 'lucide-react';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 const quickLinks = [
   { href: '/', label: 'Home' },
@@ -139,7 +140,7 @@ export function Footer() {
           </h3>
           <ul className="mt-4 space-y-3 text-sm text-smp-secondary">
             <li className="flex items-start gap-2.5">
-              <Phone size={15} className="mt-0.5 shrink-0 text-[#7B3F21]" />
+              <WhatsAppIcon size={15} className="mt-0.5 shrink-0 text-[#25D366]" />
               <div>
                 <p>+91 78459 34370</p>
                 <p className="text-xs text-smp-muted">

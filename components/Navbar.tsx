@@ -2,11 +2,12 @@
 
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Search, ShoppingBag, Phone } from 'lucide-react';
+import { Menu, X, Search, ShoppingBag } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { useCart } from '@/store/CartContext';
 import { getWhatsAppChatUrl } from '@/utils/whatsapp';
 import { GoogleAuthButton } from '@/components/GoogleAuthButton';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 const navLinks = [
   { href: '/', label: 'Home' },
@@ -109,7 +110,7 @@ export function Navbar() {
               rel="noopener noreferrer"
               className="btn-green !min-h-10 !px-4 !py-2.5 !rounded-full !text-sm"
             >
-              <Phone size={14} /> Order Now
+              <WhatsAppIcon size={15} /> Order Now
             </a>
           </div>
 
@@ -218,7 +219,7 @@ export function Navbar() {
                   rel="noopener noreferrer"
                   className="btn-green w-full"
                 >
-                  <Phone size={16} /> Order on WhatsApp
+                  <WhatsAppIcon size={16} /> Order on WhatsApp
                 </a>
               </div>
             </motion.nav>

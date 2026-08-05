@@ -4,7 +4,7 @@ import { useEffect, useRef, type ReactNode } from 'react';
 import { Color, Mesh, Program, Renderer, Triangle } from 'ogl';
 import './SpecularCard.css';
 
-const PAD = 20;
+const PAD = 8;
 
 const VERT = `#version 300 es
 in vec2 position;
@@ -83,12 +83,12 @@ export function SpecularCard({
   radius = 16,
   lineColor = '#D79B3A',
   baseColor = '#525252',
-  intensity = 1.35,
+  intensity = 0.9,
   shineSize = 12,
-  shineFade = 42,
-  thickness = 1.25,
-  speed = 0.35,
-  proximity = 220,
+  shineFade = 34,
+  thickness = 1,
+  speed = 0,
+  proximity = 180,
 }: SpecularCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const fxRef = useRef<HTMLSpanElement>(null);
@@ -119,15 +119,7 @@ export function SpecularCard({
   useEffect(() => {
     const card = cardRef.current;
     const fx = fxRef.current;
-    if (
-      !card ||
-      !fx ||
-      window.matchMedia(
-        '(prefers-reduced-motion: reduce), (hover: none), (pointer: coarse)'
-      ).matches
-    ) {
-      return;
-    }
+    if (!card || !fx) return;
 
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
     let renderer: Renderer;
@@ -158,7 +150,7 @@ export function SpecularCard({
         uCenter: { value: [0, 0] },
         uHalfSize: { value: [1, 1] },
         uRadius: { value: 0 },
-        uAngle: { value: 2.4 },
+        uAngle: { value: 2.55 },
         uPx: { value: dpr },
         uLineColor: { value: [1, 1, 1] },
         uBaseColor: { value: [0.32, 0.32, 0.32] },
@@ -173,11 +165,12 @@ export function SpecularCard({
     const mesh = new Mesh(gl, { geometry, program });
     fx.appendChild(gl.canvas);
 
-    const size = { width: 1, height: 1 };
-    const resize = () => {
+    const render = () => {
       const rect = card.getBoundingClientRect();
-      size.width = rect.width;
-      size.height = rect.height;
+      const current = propsRef.current;
+      const lineColor = new Color(current.lineColor);
+      const baseColor = new Color(current.baseColor);
+
       renderer.setSize(rect.width + PAD * 2, rect.height + PAD * 2);
       program.uniforms.uCenter.value = [
         (PAD + rect.width / 2) * dpr,
@@ -187,76 +180,23 @@ export function SpecularCard({
         (rect.width / 2) * dpr,
         (rect.height / 2) * dpr,
       ];
-    };
-
-    const resizeObserver = new ResizeObserver(resize);
-    resizeObserver.observe(card);
-    resize();
-
-    let pointerAngle: number | null = null;
-    let proximityAmount = 0;
-    const onPointerMove = (event: PointerEvent) => {
-      const rect = card.getBoundingClientRect();
-      const centerX = rect.left + rect.width / 2;
-      const centerY = rect.top + rect.height / 2;
-      const dx = Math.max(rect.left - event.clientX, 0, event.clientX - rect.right);
-      const dy = Math.max(rect.top - event.clientY, 0, event.clientY - rect.bottom);
-      const distance = Math.hypot(dx, dy);
-
-      if (distance === 0) {
-        const nx = (event.clientX - centerX) / (rect.width / 2);
-        const ny = (centerY - event.clientY) / (rect.height / 2);
-        pointerAngle =
-          Math.atan2(2 / rect.height, -2 / rect.width) + nx * 0.3 + ny * 0.15;
-      } else {
-        pointerAngle = Math.atan2(centerY - event.clientY, event.clientX - centerX);
-      }
-
-      const amount = Math.max(0, 1 - distance / Math.max(propsRef.current.proximity, 1));
-      proximityAmount = amount * amount * (3 - 2 * amount);
-    };
-    window.addEventListener('pointermove', onPointerMove, { passive: true });
-
-    let angle = 2.4;
-    let idleAngle = 2.4;
-    let brightness = 0;
-    let lastFrame = performance.now();
-    let animationFrame = 0;
-    const line = new Color();
-    const base = new Color();
-
-    const update = (now: number) => {
-      animationFrame = requestAnimationFrame(update);
-      const elapsed = Math.min((now - lastFrame) / 1000, 0.05);
-      lastFrame = now;
-      const current = propsRef.current;
-      idleAngle += current.speed * elapsed;
-      const targetAngle = pointerAngle ?? idleAngle;
-      const difference =
-        ((targetAngle - angle + Math.PI * 3) % (Math.PI * 2)) - Math.PI;
-      angle += difference * (1 - Math.exp(-elapsed * 7));
-      brightness +=
-        (proximityAmount - brightness) * (1 - Math.exp(-elapsed * 8));
-
-      line.set(current.lineColor);
-      base.set(current.baseColor);
-      program.uniforms.uAngle.value = angle;
       program.uniforms.uRadius.value =
-        Math.min(current.radius, Math.min(size.width, size.height) / 2) * dpr;
-      program.uniforms.uLineColor.value = [line.r, line.g, line.b];
-      program.uniforms.uBaseColor.value = [base.r, base.g, base.b];
-      program.uniforms.uIntensity.value = current.intensity * brightness;
+        Math.min(current.radius, Math.min(rect.width, rect.height) / 2) * dpr;
+      program.uniforms.uLineColor.value = [lineColor.r, lineColor.g, lineColor.b];
+      program.uniforms.uBaseColor.value = [baseColor.r, baseColor.g, baseColor.b];
+      program.uniforms.uIntensity.value = current.intensity;
       program.uniforms.uShineSize.value = (current.shineSize * Math.PI) / 180;
       program.uniforms.uShineFade.value = (current.shineFade * Math.PI) / 180;
       program.uniforms.uThickness.value = current.thickness * dpr;
       renderer.render({ scene: mesh });
     };
-    animationFrame = requestAnimationFrame(update);
+
+    const resizeObserver = new ResizeObserver(render);
+    resizeObserver.observe(card);
+    render();
 
     return () => {
-      cancelAnimationFrame(animationFrame);
       resizeObserver.disconnect();
-      window.removeEventListener('pointermove', onPointerMove);
       gl.canvas.remove();
       gl.getExtension('WEBGL_lose_context')?.loseContext();
     };

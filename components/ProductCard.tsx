@@ -1,13 +1,14 @@
 'use client';
 
 import Link from 'next/link';
-import { ShoppingBag, Phone, Star, Package } from 'lucide-react';
+import { ShoppingBag, Star, Package } from 'lucide-react';
 import { useState } from 'react';
 import type { Product } from '@/types';
 import { formatPrice } from '@/data/products';
 import { useCart } from '@/store/CartContext';
 import { generateSingleProductWhatsAppUrl } from '@/utils/whatsapp';
 import { SpecularCard } from '@/components/SpecularCard';
+import { WhatsAppIcon } from '@/components/WhatsAppIcon';
 
 interface ProductCardProps {
   product: Product;
@@ -18,9 +19,6 @@ export function ProductCard({ product }: ProductCardProps) {
   const [imgError, setImgError] = useState(false);
   const defaultVariant = product.variants?.[0];
   const price = defaultVariant ? defaultVariant.salePrice : product.salePrice;
-  const originalPrice = defaultVariant
-    ? defaultVariant.price
-    : product.basePrice;
   const weight = defaultVariant ? defaultVariant.weight : product.weight;
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -36,7 +34,7 @@ export function ProductCard({ product }: ProductCardProps) {
     .slice(0, 2);
 
   return (
-    <SpecularCard className="product-card group flex flex-col">
+    <SpecularCard className="product-card group flex flex-col rounded-3xl">
       {/* Image Section */}
       <Link
         href={`/products/${product.slug}`}
@@ -106,11 +104,6 @@ export function ProductCard({ product }: ProductCardProps) {
           <span className="text-lg font-bold text-white">
             {formatPrice(price)}
           </span>
-          {originalPrice > price && (
-            <span className="text-xs text-smp-muted line-through">
-              {formatPrice(originalPrice)}
-            </span>
-          )}
         </div>
 
         {/* Buttons - always at bottom */}
@@ -132,7 +125,7 @@ export function ProductCard({ product }: ProductCardProps) {
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-white/[0.06] bg-white/[0.04] text-smp-secondary transition hover:bg-[#2E7D32] hover:text-white hover:border-[#2E7D32]"
             aria-label="Order on WhatsApp"
           >
-            <Phone size={16} />
+            <WhatsAppIcon size={17} />
           </a>
         </div>
       </div>

@@ -54,9 +54,6 @@ export default function ProductDetailsPage({
   if (!product) return notFound();
 
   const price = selectedVariant ? selectedVariant.salePrice : product.salePrice;
-  const originalPrice = selectedVariant
-    ? selectedVariant.price
-    : product.basePrice;
 
   const handleAddToCart = () => {
     addItem(product, selectedVariant || null, quantity);
@@ -129,11 +126,6 @@ export default function ProductDetailsPage({
               <span className="text-3xl font-bold text-white sm:text-4xl">
                 {formatPrice(price)}
               </span>
-              {originalPrice > price && (
-                <span className="mb-1 text-xl text-[#7A7A7A] line-through">
-                  {formatPrice(originalPrice)}
-                </span>
-              )}
               <span className="w-full text-xs text-[#7A7A7A] min-[420px]:mb-2 min-[420px]:w-auto sm:text-sm">
                 inclusive of all taxes
               </span>

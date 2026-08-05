@@ -11,6 +11,12 @@ export default function ProductsPage() {
   const [searchQuery, setSearchQuery] = useState('');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
 
+  const getCategoryCount = (slug: string) => {
+    if (slug === 'best-sellers') return products.filter((p) => p.bestseller).length;
+    if (slug === 'new-arrivals') return products.filter((p) => p.newArrival).length;
+    return products.filter((p) => p.categorySlug === slug).length;
+  };
+
   let displayedProducts = searchQuery ? searchProducts(searchQuery) : products;
 
   if (activeCategory !== 'all' && !searchQuery) {
@@ -82,8 +88,8 @@ export default function ProductsPage() {
                     <span className={`text-xs ${activeCategory === 'all' && !searchQuery ? 'text-white/80' : 'text-[#7A7A7A]'}`}>
                       {products.length}
                     </span>
-                  </button>
-                </li>
+                      </button>
+                    </li>
                 {categories.map(cat => (
                   <li key={cat.id}>
                     <button
@@ -93,10 +99,10 @@ export default function ProductsPage() {
                           ? 'bg-[#7B3F21] text-white font-semibold shadow-md'
                           : 'text-[#B8B8B8] hover:bg-white/[0.04] hover:text-white'
                       }`}
-                    >
+                      >
                       {cat.name}
                       <span className={`text-xs ${activeCategory === cat.slug && !searchQuery ? 'text-white/80' : 'text-[#7A7A7A]'}`}>
-                        {cat.productCount}
+                        {getCategoryCount(cat.slug)}
                       </span>
                     </button>
                   </li>
