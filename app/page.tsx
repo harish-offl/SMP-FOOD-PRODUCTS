@@ -388,20 +388,20 @@ export default function HomePage() {
       {/* ═══════ CTA ═══════ */}
       <section className="mt-14 px-4 sm:px-8 lg:px-12">
         <div className="mx-auto w-full max-w-[1200px]">
-          <div className="relative overflow-hidden rounded-3xl border border-white/[0.06] bg-gradient-to-br from-[#7B3F21] to-[#4A2512] px-5 py-10 text-center sm:px-12 sm:py-12">
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(215,155,58,0.15),transparent_70%)]" />
-            <div className="relative z-10">
-              <Package size={40} className="mx-auto text-[#D79B3A]" />
-              <h2 className="section-title mt-5">Ready to Experience Premium Nutrition?</h2>
-              <p className="mt-3 text-sm text-white/70 max-w-lg mx-auto">
-                Join thousands of families who trust SMP Food Products for their daily nutrition.
+          <div className="relative overflow-hidden rounded-3xl border border-white/[0.06] bg-gradient-to-br from-[#171717] to-[#0E0E0F] px-5 py-10 text-center sm:px-12 sm:py-14">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(215,155,58,0.12),transparent_60%)]" />
+            <div className="relative z-10 flex flex-col items-center text-center">
+              <p className="section-label justify-center">Special Offer</p>
+              <h2 className="section-title mt-4">Get offer on your delivery</h2>
+              <p className="mt-3 text-sm text-[#B8B8B8] max-w-lg mx-auto">
+                Enjoy free delivery on orders above ₹1000 and make your first combo feel even better.
               </p>
               <div className="mt-6 flex flex-wrap justify-center gap-3">
-                <Link href="/products" className="btn-primary !bg-white !text-[#7B3F21] !px-7 !py-3 !text-sm">
-                  Shop Now <ArrowRight size={16} />
+                <Link href="/products" className="btn-primary !bg-[#2E7D32] !text-white !px-7 !py-3 !text-sm">
+                  Order Now <ArrowRight size={16} />
                 </Link>
                 <a href={getWhatsAppChatUrl()} target="_blank" rel="noopener noreferrer" className="btn-secondary !border-white/20 !px-7 !py-3 !text-sm">
-                  Order on WhatsApp
+                  Chat on WhatsApp
                 </a>
               </div>
             </div>

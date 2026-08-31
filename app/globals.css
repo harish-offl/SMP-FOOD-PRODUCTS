@@ -17,6 +17,25 @@
   --text-primary: #FFFFFF;
   --text-secondary: #B8B8B8;
   --text-muted: #7A7A7A;
+  --background: #0E0E0F;
+  --foreground: #FFFFFF;
+  --card: #1E1E20;
+  --card-foreground: #FFFFFF;
+  --popover: #171717;
+  --popover-foreground: #FFFFFF;
+  --primary: #7B3F21;
+  --primary-foreground: #FFFFFF;
+  --secondary: #262628;
+  --secondary-foreground: #FFFFFF;
+  --muted: #7A7A7A;
+  --muted-foreground: #B8B8B8;
+  --accent: #D79B3A;
+  --accent-foreground: #FFFFFF;
+  --destructive: #ef4444;
+  --destructive-foreground: #FFFFFF;
+  --border: rgba(255, 255, 255, 0.06);
+  --input: rgba(255, 255, 255, 0.06);
+  --ring: #D79B3A;
 }
 
 html {
@@ -312,12 +331,42 @@ img {
   scrollbar-width: none;
 }
 
+/* ─── Marquee ─── */
+.marquee {
+  display: flex;
+  width: 100%;
+  overflow: hidden;
+  user-select: none;
+  gap: 1rem;
+}
+
+.marquee__content {
+  display: flex;
+  gap: 1rem;
+  animation: marquee-scroll linear infinite;
+  min-width: min-content;
+}
+
+.marquee[data-direction="reverse"] .marquee__content {
+  animation-direction: reverse;
+}
+
+.marquee[data-pause-on-hover="true"]:hover .marquee__content {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* ─── Reduced Motion ─── */
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
+  .marquee__content {
+    animation: none;
   }
 }
